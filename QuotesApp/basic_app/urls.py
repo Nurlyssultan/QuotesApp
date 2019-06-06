@@ -1,5 +1,5 @@
 from django.urls import path
 from basic_app import views
 urlpatterns = [
-    path('second/', views.second, name='second'),
+    path('quotes/', views.QuoteListView.as_view(), name='quotes'),
 ]

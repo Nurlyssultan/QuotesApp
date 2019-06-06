@@ -4,7 +4,11 @@ from django.db import models
 class QuoteAuthor(models.Model):
     author = models.CharField(max_length=64,unique=True)
     famousFor = models.CharField(max_length=32)
+    def __str__(self):
+        return self.author
 class QuotePost(models.Model):
     dateCreation = models.DateField()
     quoteDesription = models.CharField(max_length=128)
     quoteAuthor = models.ForeignKey(QuoteAuthor,on_delete = models.CASCADE,related_name ='quotesOfMan')
+    def __str__(self):
+        return self.quoteDesription
