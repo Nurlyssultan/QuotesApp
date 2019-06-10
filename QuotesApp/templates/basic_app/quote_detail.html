@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+<h1>Quote_Detail.html</h1>
+{% if quote_detail %}
+<h4>{{quote_detail.quoteDesription}}</h4>
+<h4>{{quote_detail.dateCreation}}</h4>
+<h4>{{quote_detail.quoteAuthor}}</h4>
+<h4>{{quote_detail.quoteAuthor.famousFor}}</h4>
+<br/>
+{% endif %}
+{% endblock %}

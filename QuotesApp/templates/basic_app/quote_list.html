@@ -4,8 +4,7 @@
 <h1>Quote_List.html</h1>
 {% if quotes %}
 {% for quote in quotes %}
-<h4>{{quote.quoteDesription}}</h4>
-<h4>{{quote.dateCreation}}</h4>
+<a href="{{quote.id}}"><h4>{{quote.quoteDesription}}</h4></a>
 <h4>{{quote.quoteAuthor}}</h4>
 <br/>
 {% endfor %}
