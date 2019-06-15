@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+</br>
+<div class="jumbotron">
+  {% if not form.instance.pk %}
+  <h5 class="">Delete a quote:</h5>
+  {% endif %}
+  <p>Quote: {{quote_detail.quoteDesription}}</p>
+  <p>Author: {{quote_detail.quoteAuthor}}</p>
+  <form method="post">
+    {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{% url 'basic_app:detail' pk=quote_detail.pk %}" class="btn btn-primary" role="button">Cancel</a>
+  </form>
+</div>
+{% endblock %}

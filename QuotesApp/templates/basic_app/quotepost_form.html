@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+</br>
+<div class="jumbotron">
+  {% if not form.instance.pk %}
+  <h5 class="">Add a quote:</h5>
+  {% else %}
+  <h5 class="">Update the quote:</h5>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if not form.instance.pk %}
+      <button type="submit" class="btn btn-success">Add</button>
+    {% else %}
+      <button type="submit" class="btn btn-warning">Update</button>
+    {% endif %}
+    {% if not form.instance.pk %}
+    <a href="{% url 'basic_app:quotes' %}" class="btn btn-primary" role="button">Cancel</a>
+    {% else %}
+    <a href="{% url 'basic_app:detail' pk=quote_detail.pk %}" class="btn btn-primary" role="button">Cancel</a>
+    {% endif %}
+  </form>
+</div>
+
+{% endblock %}

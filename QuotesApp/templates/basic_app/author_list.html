@@ -3,26 +3,26 @@
 {% block body_block %}
 <div class="container">
   </br>
-  <a href="{% url 'basic_app:create' %}" class="btn btn-info btn-lg" role="button" aria-pressed="true">Add a quote</a>
+  <a href="{% url 'basic_app:add' %}" class="btn btn-info btn-lg" role="button" aria-pressed="true">Add an author</a>
   </br>
 </div>
 <div class="container">
   <div class="text-center">
-  <h3>A list of quotes</h3>
+  <h3>A list of authors</h3>
   </div>
 </div>
 
 <div class="row">
   <div class="col-lg-8 col-md-10 mx-auto">
-{% if quotes %}
-{% for quote in quotes %}
+{% if authors %}
+{% for author in authors %}
 <div class="post-preview">
-  <a href="{{quote.id}}">
+  <a href="{{author.id}}">
     <h5 class="post-title">
-      {{quote.quoteDesription}}
+      {{author.author}}
     </h5>
   </a>
-  <p class="post-meta">{{quote.quoteAuthor}}</p>
+  <p class="post-meta">{{author.famousFor}}</p>
 </div>
 <hr>
 {% endfor %}

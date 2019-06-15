@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 {% extends "basic_app/base.html" %}
 {% block body_block %}
-<h1>Quote_Detail.html</h1>
 {% if quote_detail %}
-<h4>{{quote_detail.quoteDesription}}</h4>
-<h4>{{quote_detail.dateCreation}}</h4>
-<h4>{{quote_detail.quoteAuthor}}</h4>
-<h4>{{quote_detail.quoteAuthor.famousFor}}</h4>
-<br/>
+<div class="jumbotron">
+  <a href="{% url 'basic_app:quotes' %}" class="btn btn-info" role="button" aria-pressed="true"><- Back</a>
+  <div class="text-center">
+    <h1 class="">Quote Details:</h1>
+  </div>
+  <hr>
+  <h5 class="">{{quote_detail.quoteDesription}}</h5>
+  <p>Author: {{quote_detail.quoteAuthor}}</p>
+  <p>Famous for: {{quote_detail.quoteAuthor.famousFor}}</p>
+  <p>Life range: {{quote_detail.quoteAuthor.lifeRange}}</p>
+  <p class="lead">
+    <a href="{% url 'basic_app:quote_update' pk=quote_detail.pk %}" class="btn btn-warning" role="button">Update</a>
+    <a href="{% url 'basic_app:quote_delete' pk=quote_detail.pk %}" class="btn btn-danger" role="button">Delete</a>
+  </p>
+</div>
 {% endif %}
 {% endblock %}

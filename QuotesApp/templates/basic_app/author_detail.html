@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% if author_detail %}
+<div class="jumbotron">
+  <a href="{% url 'basic_app:authors' %}" class="btn btn-info" role="button" aria-pressed="true"><- Back</a>
+  <div class="text-center">
+    <h1 class="">Author Details:</h1>
+  </div>
+  <hr>
+  <p>Author: {{author_detail.author}}</p>
+  <p>Famous for: {{author_detail.famousFor}}</p>
+  <p>Life range: {{author_detail.lifeRange}}</p>
+  <hr>
+  <p>Quotes:</p>
+  <ul>
+    {% for quote in author_detail.quotesOfMan.all %}
+    <li>{{quote.quoteDesription}}</li>
+    {% endfor%}
+  </ul>
+</div>
+{% endif %}
+{% endblock %}
