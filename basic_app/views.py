@@ -9,6 +9,7 @@ class QuoteListView(ListView):
     context_object_name = 'quotes'
     model = QuotePost
     template_name = 'basic_app/quote_list.html'
+    paginate_by = 6
 class QuoteDetailView(DetailView):
     context_object_name = 'quote_detail'
     model = QuotePost
@@ -17,7 +18,7 @@ class QuoteCreateView(CreateView):
     context_object_name = 'quotes'
     fields = ('quoteDesription','quoteAuthor')
     model = QuotePost
-    success_url = reverse_lazy("basic_app:quotes")
+    success_url = reverse_lazy("basic_app:detail")
 class QuoteUpdateView(UpdateView):
     context_object_name = 'quote_detail'
     fields = ('quoteDesription','quoteAuthor')

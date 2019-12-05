@@ -8,11 +8,11 @@ class QuoteAuthor(models.Model):
     def __str__(self):
         return self.author
     def get_absolute_url(self):
-        return reverse("authors")
+        return reverse('author_detail', kwargs = {'pk' : self.pk})
 class QuotePost(models.Model):
     quoteDesription = models.CharField(max_length=128)
     quoteAuthor = models.ForeignKey(QuoteAuthor,on_delete = models.CASCADE,related_name ='quotesOfMan')
     def __str__(self):
         return self.quoteDesription
     def get_absolute_url(self):
-        return reverse("quotes")
+        return reverse('detail', kwargs = {'pk' : self.pk})

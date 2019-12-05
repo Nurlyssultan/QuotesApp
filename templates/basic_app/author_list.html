@@ -11,20 +11,16 @@
   <h3>A list of authors</h3>
   </div>
 </div>
-
 <div class="row">
   <div class="col-lg-8 col-md-10 mx-auto">
 {% if authors %}
 {% for author in authors %}
-<div class="post-preview">
-  <a href="{{author.id}}">
-    <h5 class="post-title">
-      {{author.author}}
-    </h5>
-  </a>
-  <p class="post-meta">{{author.famousFor}}</p>
+<div class="card mt-2">
+  <div class="card-body">
+      <h5 class="card-title"><a href="{{author.id}}">{{author.author}}</a></h5>
+      <p class="card-text">{{author.famousFor}}</p>
+  </div>
 </div>
-<hr>
 {% endfor %}
 {% endif %}
 </div>

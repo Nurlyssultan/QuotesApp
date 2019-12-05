@@ -2,20 +2,22 @@
 {% extends "basic_app/base.html" %}
 {% block body_block %}
 {% if quote_detail %}
-<div class="jumbotron">
+<div class="container">
+  </br>
   <a href="{% url 'basic_app:quotes' %}" class="btn btn-info" role="button" aria-pressed="true"><- Back</a>
-  <div class="text-center">
-    <h1 class="">Quote Details:</h1>
-  </div>
-  <hr>
-  <h5 class="">{{quote_detail.quoteDesription}}</h5>
-  <p>Author: {{quote_detail.quoteAuthor}}</p>
-  <p>Famous for: {{quote_detail.quoteAuthor.famousFor}}</p>
-  <p>Life range: {{quote_detail.quoteAuthor.lifeRange}}</p>
-  <p class="lead">
-    <a href="{% url 'basic_app:quote_update' pk=quote_detail.pk %}" class="btn btn-warning" role="button">Update</a>
-    <a href="{% url 'basic_app:quote_delete' pk=quote_detail.pk %}" class="btn btn-danger" role="button">Delete</a>
-  </p>
+  </br>
+  <div class="card" style="width: 50rem;">
+      <h5 class="card-header">Quote Details:</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{quote_detail.quoteDesription}}</h5>
+        <p class="card-text">Author: {{quote_detail.quoteAuthor}}</p>
+        <p class="card-text">Famous for: {{quote_detail.quoteAuthor.famousFor}}</p>
+        <p class="card-text">Life range: {{quote_detail.quoteAuthor.lifeRange}}</p> 
+        <a href="{% url 'basic_app:quote_update' pk=quote_detail.pk %}" class="btn btn-warning" role="button">Update</a>
+        <a href="{% url 'basic_app:quote_delete' pk=quote_detail.pk %}" class="btn btn-danger" role="button">Delete</a>
+      </div>
+    </div>
 </div>
+
 {% endif %}
 {% endblock %}
