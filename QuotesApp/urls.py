@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from basic_app import views
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='first_page'),
+    path('main_page', views.IndexView.as_view(), name='first_page'),
     path('basic_app/', include('basic_app.urls')),
     path('admin/', admin.site.urls),
 ]
